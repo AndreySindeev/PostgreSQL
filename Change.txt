@@ -1,0 +1,24 @@
+Модификация таблиц!
+-Добавить колонки
+-Удалить колонки
+-Добавить ограничения
+-Удалить ограничения
+-Изменить значения по умолчанию
+-Изменить типы данных колонок
+-Переименовать колонки
+-Переименовать таблицы
+#Поле name содержит not null
+ALTER TABLE products ALTER COLUMN name SET NOT NULL;
+#Поле name теперь ещё и unique
+ALTER TABLE products ADD CONSTRAINT some_name UNIQUE (name);
+#и имеет тип character varying;
+ALTER TABLE products ALTER COLUMN name TYPE character varying;
+# Добавляем поле amount типа integer		
+
+ id | name | price | amount
+ ----+------+-------+--------
+
+ALTER TABLE products ADD COLUMN amount integer;
+#Удаляем default у поля price
+ALTER TABLE products ALTER COLUMN price DROP DEFAULT;
+

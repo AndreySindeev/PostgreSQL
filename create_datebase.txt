@@ -1,0 +1,58 @@
+1- psql - указываем СУБД которой будем пользоваться далее -U username у которого есть привелегии суперпользователя.
+server@ psql -U postgres
+заходим в управление и теперь можем выполнять sql команды.
+postgres=# \q выполняет выход из управления бд
+postgres=# NAME COMMAND
+Примеры
+postgres=# CREATE DATABASE name_db;
+создаст базу данных с именем name_db
+postgres=# \? покажет справку по командам запроса к бд
+postgres=# \l покажет список баз данных и их владельцев и всю мето информацию.
+postgres=# DROP DATABASE name_db выполняет удаление базы данных.
+postgres=#
+
+
+можно создавать базы данных напрямую из терминала
+create db -U postgres name_db (postgres- это имя пользователя из под которого мы удаляем или добаляем бд)
+данная команда создаст бд из под пользователя postgres
+если создать из текущего пользователя из под которого мы сидим в linux скорее всего он выдаст ошибку,для такой операции нужно,
+что бы этот пользователь был создан для управления бд
+drop db -U postgres name_db -удалит базу данных из СУБД
+
+postgres=# ALTER DATABASE name_db RENAME TO new_name_db;
+переименовывает базу данных.
+
+postgres=# ALTER DATABASE name_db OWNER TO user_name;
+данная команда меняет владельца бд с текущего к примеру postgres на указанного user_name
+
+
+Кто по умолчанию является владельцем (owner) только что созданной базы данных?
+|_____пользователь, из учетной записи которого выполнялась команда создания.
+
+когда мы заходим под postgres мы не подключены к нашей базе данных ,что бы зайти в указанную, нам нужно выполнить следующее и мы
+зайдем под указанным юзером.
+
+postgres=# \с name_user;
+
+просмотреть информацию о таблице
+postgres=# \d name_table
+
+
+postgres=# CREATE TABLE cars (
+    id integer,
+    name character varying,
+    price numeric,
+    created_at timestamp
+);
+
+создаст таблицу cars вид:
+id        |integer
+name      |character varying
+price     |numeric
+created_at|timestamp
+
+integed - целое число
+character varying - строка символов(текст) можно в скобках выстовить ограничение по количесиву символов
+numeric числа с плавающей точкой 38.01
+timestamp время
+
