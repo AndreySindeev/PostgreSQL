@@ -33,6 +33,18 @@ SELECT * FROM cars WHERE cost between 22.000 AND 30.000;Выборка по ст
 
 SELECT * FROM cars WHERE cost IS NOT NULL;Все поля где существует NOT NULL
 
+SELECT * FROM cars WHERE products_name LIKE ('Toyota'); Выборка только одной строки из таблицы!
 
+SELECT * FROM cars WHERE products_name LIKE ('T%'); Выборка строк из таблицы где все products_name начинаются с Т!
+
+SELECT * FROM cars WHERE products_name LIKE ('%e'); Выборка строк из таблицы где всё products_name заканчиваются на e!
+
+SELECT * FROM cars WHERE products_name LIKE ('%o%'); Выборка строк где всё в products_name содержат о!
+
+SELECT * FROM cars WHERE products_name LIKE ('_____n'); Выборка строки из products_name содержит 4 символа и на конце n!
+
+SELECT * FROM cars WHERE products_name ILIKE ('h____'); ILIKE используется для поиска независимо от регистра(большая/маленькая буква)
+
+SELECT products_name FROM cars WHERE products_name ILIKE ('h%'); указание вместо * название столбца ускоряет работу, когда мы указываем звёздочку мы говорим, что бы мы искали из всей таблицы, а таблицы могут быть огромными и поиск будет выполняться медленно, гораздо лучше использовать поиск в определённых колонках
 
 
