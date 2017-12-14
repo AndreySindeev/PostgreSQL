@@ -1,0 +1,21 @@
+Data Query Language - язык запросов, составная часть SQL. Состоит из единственной команды SELECT.
+Стандартный запрос на выборку выглядит так:
+SELECT * FROM name_tb;
+место звёздочки, обозначает все поля.
+id | products_name | description |  cost  
+----+---------------+-------------+--------
+  1 | Toyota        | New Camry   | 30.000
+  3 | Honda         | New Civic   | 27.350
+  4 | Nissan        | New NOTE    | 25.100
+  5 | Subaru        | New Legacy  | 30.002
+  6 | Mitsubishi    | New COLT    | 22.500
+  7 | Daihatsu      | New Tereos  | 28.800
+  8 | Hynday        | New Accent  | 21.500
+SELECT products_name, description FROM cars; выборка двух указанных столбцов из таблицы cars;
+
+SELECT description AS Models from cars; Изменит имя указанного столбца на новое.Сделанно что бы не путать одинаковые имена столбцов в разных таблицах к примеру .(Не переименовывает имя в самой таблице в БД!)
+Так же можно выполнять различные мат вычисления с помощью SELECT.
+
+
+
+
